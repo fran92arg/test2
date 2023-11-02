@@ -68,7 +68,7 @@ void main (void)
     //Set LED1 to output direction
     GPIO_setAsOutputPin(GPIO_PORT_LED1,GPIO_PIN_LED1);
 
-    //Enable S1 internal resistance as pull-Up resistance
+
     //pin 1.6 sin pullup para el touch
     GPIO_setAsInputPin(GPIO_PORT_P1, GPIO_PIN6);
     //GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_S1,GPIO_PIN_S1);
@@ -77,8 +77,7 @@ void main (void)
     GPIO_enableInterrupt(GPIO_PORT_P1,GPIO_PIN6);
 
     //S1 Hi/Lo edge
-    GPIO_selectInterruptEdge(
-        GPIO_PORT_P1,GPIO_PIN6,GPIO_LOW_TO_HIGH_TRANSITION);
+    GPIO_selectInterruptEdge(GPIO_PORT_P1,GPIO_PIN6,GPIO_LOW_TO_HIGH_TRANSITION);
 
 
     //S1 IFG cleared
@@ -91,12 +90,7 @@ void main (void)
 
     //For debugger
     while(1){
-//        if(GPIO_getInputPinValue(GPIO_PORT_P1, GPIO_PIN6)==GPIO_INPUT_PIN_HIGH){
-//            GPIO_toggleOutputOnPin(
-//                GPIO_PORT_LED1,
-//                GPIO_PIN_LED1
-//                );
-//        }
+
     }
 
 }
