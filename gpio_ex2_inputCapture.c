@@ -66,10 +66,7 @@ void main (void)
     WDT_A_hold(WDT_A_BASE);
     //
     //Set LED1 to output direction
-    GPIO_setAsOutputPin(
-        GPIO_PORT_LED1,
-        GPIO_PIN_LED1
-        );
+    GPIO_setAsOutputPin(GPIO_PORT_LED1,GPIO_PIN_LED1);
 
     //Enable S1 internal resistance as pull-Up resistance
     //pin 1.6 sin pullup para el touch
@@ -81,16 +78,11 @@ void main (void)
 
     //S1 Hi/Lo edge
     GPIO_selectInterruptEdge(
-        GPIO_PORT_P1,
-        GPIO_PIN6,
-        GPIO_LOW_TO_HIGH_TRANSITION);
+        GPIO_PORT_P1,GPIO_PIN6,GPIO_LOW_TO_HIGH_TRANSITION);
 
 
     //S1 IFG cleared
-    GPIO_clearInterrupt(
-        GPIO_PORT_P1,
-        GPIO_PIN6
-        );
+    GPIO_clearInterrupt(GPIO_PORT_P1,GPIO_PIN6);
 
     PMM_unlockLPM5();
 
@@ -118,16 +110,10 @@ void P1_ISR (void)
 #endif //
 {
     //LED1 = toggle
-    GPIO_toggleOutputOnPin(
-        GPIO_PORT_LED1,
-        GPIO_PIN_LED1
-        );
+    GPIO_toggleOutputOnPin(GPIO_PORT_LED1,GPIO_PIN_LED1);
 
     //S1 IFG cleared
-    GPIO_clearInterrupt(
-        GPIO_PORT_P1,
-        GPIO_PIN6
-        );
+    GPIO_clearInterrupt(GPIO_PORT_P1,GPIO_PIN6);
 }
 //******************************************************************************
 //
